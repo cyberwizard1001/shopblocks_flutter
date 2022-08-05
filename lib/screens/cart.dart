@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
+import 'package:shopblocks_flutter/widgets/custom_sliver_widget.dart';
+import 'package:shopblocks_flutter/widgets/top_bar.dart';
 
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
@@ -7,7 +9,18 @@ class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: colors.scaffoldColor,
-        body: const SafeArea(child: Text('Hey')));
+      backgroundColor: colors.scaffoldColor,
+      body: CustomSliverView(
+        columnList: [
+          TopBar(
+            hasback: false,
+            onChanged: (value) {
+              //TODO: do something if it screen changes
+            },
+            title: 'Cart',
+          ),
+        ],
+      ),
+    );
   }
 }

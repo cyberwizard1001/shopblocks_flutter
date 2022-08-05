@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
         onPageChanged: (index) {
           setState(() => currentIndex = index);
         },
-        children: const [Deals(), Wallet(), Vendors(), Cart(), Profile()],
+        children: const [Deals(), Wallet(), Vendors(), Profile(), Cart()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -53,20 +53,22 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
               backgroundColor: colors.scaffoldColor,
-              icon: const Icon(Icons.star_border_sharp),
+              icon: const Icon(Ionicons.wallet_outline),
               label: 'Wallet'),
           BottomNavigationBarItem(
               backgroundColor: colors.scaffoldColor,
-              icon: const Icon(Icons.tag_faces_outlined),
+              icon: const Icon(Ionicons.compass_outline),
               label: 'Vendors'),
           BottomNavigationBarItem(
-              backgroundColor: colors.scaffoldColor,
-              icon: const Icon(Icons.notifications_outlined),
-              label: 'Cart'),
+            backgroundColor: colors.scaffoldColor,
+            icon: const Icon(Ionicons.person_outline),
+            label: 'Profile',
+          ),
           BottomNavigationBarItem(
               backgroundColor: colors.scaffoldColor,
-              icon: const Icon(Icons.notifications_outlined),
-              label: 'Profile'),
+              icon: const Icon(Ionicons.cart_outline),
+              label: 'Cart'),
+
           // if (snapshot.data == admin || snapshot.data == superAdmin)
           //   BottomNavigationBarItem(
           //       backgroundColor: colors.scaffoldColor,
