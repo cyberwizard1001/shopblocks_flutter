@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shopblocks_flutter/screens/cart.dart';
 import 'package:shopblocks_flutter/screens/deals.dart';
 import 'package:shopblocks_flutter/screens/profile.dart';
 import 'package:shopblocks_flutter/screens/vendors.dart';
 import 'package:shopblocks_flutter/screens/wallet.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:math' as math;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,6 +22,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colors.scaffoldColor,
       body: PageView(
         controller: controller,
         onPageChanged: (index) {
@@ -33,7 +37,7 @@ class _HomeState extends State<Home> {
           controller.animateToPage(index,
               duration: const Duration(milliseconds: 500), curve: Curves.ease);
         },
-        selectedItemColor: colors.accentColor,
+        selectedItemColor: colors.primaryColor,
         unselectedItemColor: Colors.white70,
         showUnselectedLabels: false,
         iconSize: 28,
@@ -44,9 +48,10 @@ class _HomeState extends State<Home> {
         backgroundColor: colors.scaffoldColor,
         items: [
           BottomNavigationBarItem(
-              backgroundColor: colors.scaffoldColor,
-              icon: const Icon(Icons.home_outlined),
-              label: 'Deals'),
+            backgroundColor: colors.scaffoldColor,
+            icon: FaIcon(FontAwesomeIcons.tag),
+            label: 'Deals',
+          ),
           BottomNavigationBarItem(
               backgroundColor: colors.scaffoldColor,
               icon: const Icon(Icons.star_border_sharp),
