@@ -30,38 +30,49 @@ class TextBoxField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
-      child: TextFormField(
-          initialValue: initialValue ?? null,
-          controller: controller,
-          validator: validator,
-          onSaved: onSaved,
-          onChanged: onChanged,
-          style: GoogleFonts.montserrat(
-              color: light ? colors.scaffoldColor : colors.primaryTextColor),
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(
-                left: 10.0, right: 10.0, top: 5.0, bottom: 5.0),
-            label: Text(title,
-                style: GoogleFonts.nunito(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(title,style: GoogleFonts.raleway(fontWeight: FontWeight.w500,color: colors.primaryColor),),
+          ),
+          TextFormField(
+              initialValue: initialValue ?? null,
+              controller: controller,
+              validator: validator,
+              onSaved: onSaved,
+              onChanged: onChanged,
+              style: GoogleFonts.montserrat(
+                  color: light ? colors.scaffoldColor : colors.primaryTextColor),
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.only(
+                    left: 10.0, right: 10.0, top: 5.0, bottom: 5.0),
+                label: Text(title,
+                    style: GoogleFonts.nunito(
+                        color: light
+                            ? colors.lightTextBoxTextColor
+                            : colors.textBoxTextColor,
+                        fontSize: 17)),
+                filled: true,
+                hintText: hint,
+                hintStyle: GoogleFonts.nunito(
                     color: light
                         ? colors.lightTextBoxTextColor
-                        : colors.textBoxTextColor,
-                    fontSize: 17)),
-            filled: true,
-            hintText: hint,
-            hintStyle: GoogleFonts.nunito(
-                color: light
-                    ? colors.lightTextBoxTextColor
-                    : colors.textBoxTextColor),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(5)),
-            fillColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
-            focusColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(5)),
-          )),
+                        : colors.textBoxTextColor),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(5)),
+                fillColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
+                focusColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(5)),
+              )),
+        ],
+      ),
     );
   }
 }
