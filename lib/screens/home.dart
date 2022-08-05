@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:shopblocks_flutter/screens/cart.dart';
 import 'package:shopblocks_flutter/screens/deals.dart';
 import 'package:shopblocks_flutter/screens/profile.dart';
 import 'package:shopblocks_flutter/screens/vendors.dart';
 import 'package:shopblocks_flutter/screens/wallet.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:math' as math;
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -49,7 +48,7 @@ class _HomeState extends State<Home> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: colors.scaffoldColor,
-            icon: FaIcon(FontAwesomeIcons.tag),
+            icon: const Icon(Ionicons.pricetag_outline),
             label: 'Deals',
           ),
           BottomNavigationBarItem(

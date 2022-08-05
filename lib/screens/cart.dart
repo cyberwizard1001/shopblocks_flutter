@@ -8,6 +8,6 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: colors.scaffoldColor,
-        body: SafeArea(child: Text('Hey')));
+        body: const SafeArea(child: Text('Hey')));
   }
 }

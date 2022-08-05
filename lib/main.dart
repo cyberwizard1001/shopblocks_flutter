@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopblocks_flutter/screens/home.dart';
-import 'package:shopblocks_flutter/screens/login.dart';
 import 'utils/colors.dart' as colors;
 
 void main() {
@@ -21,7 +20,7 @@ void main() {
           secondary: colors.accentColor,
         ),
       ),
-      home: Login(),
+      home: const Home(),
     ),
   );
 }

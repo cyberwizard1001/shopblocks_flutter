@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
+import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
+import 'package:shopblocks_flutter/widgets/top_bar.dart';
 
 class Deals extends StatefulWidget {
   const Deals({Key? key}) : super(key: key);
@@ -13,8 +15,16 @@ class _DealsState extends State<Deals> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colors.scaffoldColor,
-      body: SafeArea(
-        child: Container(),
+      body: CustomSliverView(
+        columnList: [
+          TopBar(
+            hasback: false,
+            onChanged: (value) {
+              //TODO: do something if it screen changes
+            },
+            title: 'Events',
+          ),
+        ],
       ),
     );
   }
