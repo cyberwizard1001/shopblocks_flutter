@@ -9,7 +9,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Login(),
+      home: const Home(),
     ),
   );
 }

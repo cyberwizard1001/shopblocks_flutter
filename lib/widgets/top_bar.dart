@@ -28,54 +28,54 @@ class TopBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // if (hasback)
-              //   IconButton(
-              //     onPressed: () {
-              //       Navigator.pop(context);
-              //     },
-              //     icon: Icon(
-              //       Icons.arrow_back_ios_new_outlined,
-              //       color: colors.primaryTextColor,
-              //     ),
-              //   ),
-              Ink(
-                decoration: const ShapeDecoration(
-                  color: colors.lightGreyBackground,
-                  shape: CircleBorder(),
-                ),
-                child: IconButton(
+              if (hasback)
+                IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: Icon(
-                    Ionicons.location_outline,
-                    size: 30,
+                    Icons.arrow_back_ios_new_outlined,
                     color: colors.primaryTextColor,
                   ),
                 ),
-              ),
-
+              if (hasback == false)
+                Ink(
+                  decoration: const ShapeDecoration(
+                    color: colors.lightGreyBackground,
+                    shape: CircleBorder(),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Ionicons.location_outline,
+                      // size: 30,
+                      color: colors.primaryTextColor,
+                    ),
+                  ),
+                ),
               Text(
                 title,
                 style: texts.heading2,
               ),
-
-              Ink(
-                decoration: const ShapeDecoration(
-                  color: colors.lightGreyBackground,
-                  shape: CircleBorder(),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Ionicons.settings_outline,
-                    size: 30,
-                    color: colors.primaryTextColor,
+              if (hasback == false)
+                Ink(
+                  decoration: const ShapeDecoration(
+                    color: colors.lightGreyBackground,
+                    shape: CircleBorder(),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Ionicons.settings_outline,
+                      // size: 30,
+                      color: colors.primaryTextColor,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ],
