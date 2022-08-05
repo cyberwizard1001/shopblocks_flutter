@@ -43,14 +43,16 @@ class TopBar extends StatelessWidget {
                   color: colors.lightGreyBackground,
                   shape: CircleBorder(),
                 ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Ionicons.location_outline,
-                    size: 30,
-                    color: colors.primaryTextColor,
+                child: Center(
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Ionicons.location_outline,
+                      size: 30,
+                      color: colors.primaryTextColor,
+                    ),
                   ),
                 ),
               ),
@@ -65,14 +67,16 @@ class TopBar extends StatelessWidget {
                   color: colors.lightGreyBackground,
                   shape: CircleBorder(),
                 ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Ionicons.settings_outline,
-                    size: 30,
-                    color: colors.primaryTextColor,
+                child: Center(
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Ionicons.settings_outline,
+                      size: 30,
+                      color: colors.primaryTextColor,
+                    ),
                   ),
                 ),
               ),

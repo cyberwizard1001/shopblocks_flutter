@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopblocks_flutter/screens/add_item.dart';
 import 'package:shopblocks_flutter/screens/home.dart';
 import 'package:shopblocks_flutter/screens/landing_page.dart';
 import 'package:shopblocks_flutter/screens/login.dart';
@@ -9,7 +10,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Login(),
+      home: const AddItems(),
     ),
   );
 }
