@@ -6,6 +6,9 @@ var headingTextColor = const Color(0xffffffff);
 var primaryTextColor = const Color(0xff747474);
 var lightTextColor = const Color(0xff8C8888);
 var accentColor = const Color(0xff202020);
+var cardBackgroundColor = const Color(0xff161616);
+var whiteText = const Color(0xffffffff);
+var checkGreen = const Color(0xff7DBD4A);
 
 const lightGreyBackground = const Color(0xff202020);
 
@@ -19,7 +22,6 @@ var textBoxColor = const Color(0xff4B4465);
 var lightTextBoxColor = const Color(0xffF5F5F5);
 var lightTextBoxTextColor = const Color(0xff818D80);
 var textBoxTextColor = const Color(0xffDADADA);
-var cardBackgroundColor = const Color(0xff2F2C37);
 var eventCardItemTitle = const Color(0xffC0C0C0);
 var notificationDateColors = const Color(0xffFFC388);
 var dividerColor = const Color(0xffdcc1ff);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
+import 'package:shopblocks_flutter/widgets/alert_dialog.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 
 class Deals extends StatefulWidget {
@@ -121,34 +122,41 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
-                fit: BoxFit.contain,
-                image: NetworkImage(
-                    "https://www.transparentpng.com/thumb/carrot/AciY35-carrot-transparent-picture.png"),
+    return GestureDetector(
+      onTap: () {
+        displaySucessDialog(
+            context,
+            'Your purchase has been sent to the seller for verification',
+            'Please wait for them to respond');
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: const DecorationImage(
+                  fit: BoxFit.contain,
+                  image: AssetImage("assets/images/test-carrot.png"),
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          'Item Name',
-          style: texts.paragraph.copyWith(
-              fontWeight: FontWeight.w800, color: colors.headingTextColor),
-        ),
-        const SizedBox(height: 3),
-        Text(
-          'Price',
-          style: texts.paragraph
-              .copyWith(fontSize: 17, color: colors.headingTextColor),
-        )
-      ],
+          const SizedBox(height: 10),
+          Text(
+            'Item Name',
+            style: texts.paragraph.copyWith(
+                fontWeight: FontWeight.w800, color: colors.headingTextColor),
+          ),
+          const SizedBox(height: 3),
+          Text(
+            'Price',
+            style: texts.paragraph
+                .copyWith(fontSize: 17, color: colors.headingTextColor),
+          )
+        ],
+      ),
     );
   }
 }
