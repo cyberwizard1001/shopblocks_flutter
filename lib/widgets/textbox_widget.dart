@@ -35,10 +35,6 @@ class TextBoxField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(title,style: GoogleFonts.raleway(fontWeight: FontWeight.w500,color: colors.primaryColor),),
-          ),
           TextFormField(
               initialValue: initialValue ?? null,
               controller: controller,
@@ -61,12 +57,12 @@ class TextBoxField extends StatelessWidget {
                 hintStyle: GoogleFonts.nunito(
                     color: light
                         ? colors.lightTextBoxTextColor
-                        : colors.textBoxTextColor),
+                        : const Color(0xff8C8888)),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(5)),
-                fillColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
-                focusColor: light ? colors.lightTextBoxColor : colors.textBoxColor,
+                fillColor: light ? colors.lightTextBoxColor : colors.accentColor,
+                focusColor: light ? colors.lightTextBoxColor : colors.accentColor,
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(5)),
