@@ -10,7 +10,7 @@ class TimePickerWidget extends FormField<TimeOfDay> {
       FormFieldValidator<TimeOfDay>? validator,
       TimeOfDay? initialValue,
       required context,
-      hint = 'Please choose event time',
+      hint = 'Please choose time',
       title,
       AutovalidateMode autoValidateMode = AutovalidateMode.disabled})
       : super(
@@ -18,7 +18,7 @@ class TimePickerWidget extends FormField<TimeOfDay> {
             onSaved: onSaved,
             validator: validator ??
                 (data) {
-                  if (data == null) return "Please choose event time";
+                  if (data == null) return "Please choose time";
                   return null;
                 },
             initialValue: initialValue ?? TimeOfDay.now(),
@@ -43,7 +43,7 @@ class TimePickerWidget extends FormField<TimeOfDay> {
                             fontSize: 15, color: colors.primaryTextColor)),
                   ),
                   Card(
-                    color: colors.textBoxColor,
+                    color: colors.accentColor,
                     margin: const EdgeInsets.only(bottom: 4),
                     child: InkWell(
                       onTap: () async {
@@ -55,12 +55,12 @@ class TimePickerWidget extends FormField<TimeOfDay> {
                               data: Theme.of(context).copyWith(
                                 // This uses the _timePickerTheme defined above
                                 timePickerTheme: TimePickerThemeData(
-                                  backgroundColor: colors.cardColor,
-                                  hourMinuteColor: colors.textBoxColor,
+                                  backgroundColor: colors.scaffoldColor,
+                                  hourMinuteColor: colors.accentColor,
                                   hourMinuteTextColor: colors.primaryTextColor,
                                   dayPeriodTextColor: colors.primaryTextColor,
                                   dialTextColor: colors.primaryTextColor,
-                                  dialHandColor: colors.scaffoldColor,
+                                  dialHandColor: colors.primaryColor,
                                   entryModeIconColor: colors.primaryTextColor,
                                   helpTextStyle: GoogleFonts.raleway(
                                       color: colors.primaryTextColor,

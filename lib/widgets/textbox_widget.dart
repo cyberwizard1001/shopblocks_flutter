@@ -50,14 +50,14 @@ class TextBoxField extends StatelessWidget {
                     style: GoogleFonts.nunito(
                         color: light
                             ? colors.lightTextBoxTextColor
-                            : colors.textBoxTextColor,
+                            : colors.primaryTextColor,
                         fontSize: 17)),
                 filled: true,
                 hintText: hint,
                 hintStyle: GoogleFonts.nunito(
                     color: light
                         ? colors.lightTextBoxTextColor
-                        : const Color(0xff8C8888)),
+                        : colors.primaryTextColor),
                 focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(5)),

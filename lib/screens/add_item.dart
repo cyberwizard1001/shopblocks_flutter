@@ -4,6 +4,7 @@ import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
 import 'package:shopblocks_flutter/widgets/dropdown_widget.dart';
 import 'package:shopblocks_flutter/widgets/textbox_widget.dart';
 import 'package:shopblocks_flutter/widgets/textboxwithdropdown_widget.dart';
+import 'package:shopblocks_flutter/widgets/time_picker.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
@@ -28,12 +29,12 @@ class _AddItemsState extends State<AddItems> {
             child: Container(),
           ),
           Expanded(
-              flex: 9,
+              flex: 11,
               child: Column(
                 children: [
-                  TextButton(
+                  ElevatedButton(
                       onPressed: () {},
-                      style: TextButton.styleFrom(
+                      style: ElevatedButton.styleFrom(
                           primary: colors.primaryColor,
                           shape: RoundedRectangleBorder(
                               side: BorderSide.none,
@@ -48,7 +49,7 @@ class _AddItemsState extends State<AddItems> {
                       )),
                   const Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                        EdgeInsets.only(top: 50.0, left: 20.0,right: 20.0,bottom: 20.0),
                     child: TextBoxField(
                       hint: 'Enter item name here',
                       light: false,
@@ -68,8 +69,19 @@ class _AddItemsState extends State<AddItems> {
                     ], title: 'CATEGORY', hint: 'Select your category'),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                    child: IncomeWithTypeTextField(listOfOptions: const ['Number','Grams','Kilograms','Litres','Meters'], hintText: 'Enter quantity', text: 'QUANTITY',),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: IncomeWithTypeTextField(
+                      listOfOptions: const [
+                        'Number',
+                        'Grams',
+                        'Kilograms',
+                        'Litres',
+                        'Meters'
+                      ],
+                      hintText: 'Enter quantity',
+                      text: 'QUANTITY',
+                    ),
                   ),
                   const Padding(
                     padding:
@@ -91,6 +103,12 @@ class _AddItemsState extends State<AddItems> {
                       padding: EdgeInsets.zero,
                     ),
                   ),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 20.0),
+                      child: TimePickerWidget(
+                        context: context,
+                      )),
                   const Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
@@ -99,6 +117,20 @@ class _AddItemsState extends State<AddItems> {
                       light: false,
                       title: 'DESCRIPTION',
                       padding: EdgeInsets.zero,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 100,bottom: 50),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(primary: colors.primaryColor),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 8.0),
+                        child: Text(
+                          'Add item to cart',
+                          style: texts.button,
+                        ),
+                      ),
                     ),
                   )
                 ],
