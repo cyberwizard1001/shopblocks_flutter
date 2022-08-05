@@ -14,6 +14,12 @@ TextStyle heading2 = GoogleFonts.raleway(
   fontWeight: FontWeight.w700,
 );
 
+TextStyle heading3 = GoogleFonts.raleway(
+  fontSize: 22,
+  color: colors.headingTextColor,
+  fontWeight: FontWeight.w700,
+);
+
 TextStyle paragraph = GoogleFonts.raleway(
   color: colors.lightTextColor,
   fontWeight: FontWeight.w400,
