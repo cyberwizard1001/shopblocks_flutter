@@ -46,6 +46,9 @@ dependencies:
   wallet_connect:
   firebase_core:
   ionicons:
+  url_launcher:
+  flutter_web3:
+  provider:
 
 dev_dependencies:
   flutter_test:
