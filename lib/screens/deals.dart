@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shopblocks_flutter/screens/add_item.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
 import 'package:shopblocks_flutter/widgets/alert_dialog.dart';
@@ -17,7 +18,9 @@ class _DealsState extends State<Deals> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddItems()));
+        },
         elevation: 0,
         foregroundColor: Colors.black,
         backgroundColor: colors.primaryColor,

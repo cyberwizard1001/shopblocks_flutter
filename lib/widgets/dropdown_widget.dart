@@ -37,14 +37,14 @@ class DropDownFormField extends FormField<dynamic> {
                             fontSize: 15, color: colors.primaryTextColor)),
                   ),
                   Card(
-                    color: colors.textBoxColor,
+                    color: colors.accentColor,
                     elevation: 1,
                     margin: const EdgeInsets.only(bottom: 4),
                     child: DropdownButtonHideUnderline(
                       child: ButtonTheme(
                         alignedDropdown: true,
                         child: DropdownButton<dynamic>(
-                          dropdownColor: colors.textBoxColor,
+                          dropdownColor: colors.accentColor,
                           value: state.value,
                           isExpanded: true,
                           items: list.map<DropdownMenuItem>((value) {
@@ -60,7 +60,7 @@ class DropDownFormField extends FormField<dynamic> {
                             state.didChange(newValue);
                           },
                           hint: Container(
-                            color: colors.textBoxColor,
+                            color: colors.accentColor,
                             padding: const EdgeInsets.all(8),
                             child: Text(
                               hint,
