@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
+import 'package:shopblocks_flutter/widgets/reusable_button.dart';
 
 displayDialog(context, positiveText, negativeText, Function positiveFunction,
     title, subTitle,
@@ -61,43 +62,42 @@ displaySucessDialog(context, title, subTitle) async {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.35,
-        width: MediaQuery.of(context).size.width * 0.95,
-        child: Padding(
-          padding:
-              const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: texts.heading3,
-                textAlign: TextAlign.center,
+      child: Padding(
+        padding:
+            const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 30),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: texts.heading3,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: colors.lightGreyBackground,
+              child: Icon(
+                Ionicons.checkmark,
+                color: colors.checkGreen,
+                size: 50,
               ),
-              CircleAvatar(
-                radius: 40,
-                backgroundColor: colors.lightGreyBackground,
-                child: Icon(
-                  Ionicons.checkmark,
-                  color: colors.checkGreen,
-                  size: 50,
-                ),
-              ),
-              Text(
-                subTitle,
-                style: texts.paragraphw,
-                textAlign: TextAlign.center,
-              )
-            ],
-          ),
+            ),
+            const SizedBox(height: 30),
+            Text(
+              subTitle,
+              style: texts.paragraphw,
+              textAlign: TextAlign.center,
+            )
+          ],
         ),
       ),
     ),
   );
 }
 
-displayButtonDialogue(context, title, subTitle) async {
+displayButtonDialogue(context, title, subTitle, onPress) async {
   return await showDialog(
     context: context,
     builder: (context) => Dialog(
@@ -105,27 +105,27 @@ displayButtonDialogue(context, title, subTitle) async {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.35,
-        width: MediaQuery.of(context).size.width * 0.95,
-        child: Padding(
-          padding:
-              const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: texts.heading3,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                subTitle,
-                style: texts.paragraphw,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+      child: Padding(
+        padding:
+            const EdgeInsets.only(right: 15, left: 15, top: 30, bottom: 30),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: texts.heading3,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            Text(
+              subTitle,
+              style: texts.paragraphw,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            ReusableButton(onPress: () => {onPress}),
+          ],
         ),
       ),
     ),

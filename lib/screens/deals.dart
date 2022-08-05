@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:shopblocks_flutter/screens/add_item.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
-import 'package:shopblocks_flutter/widgets/alert_dialog.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
+
+import '../widgets/item_card.dart';
 
 class Deals extends StatefulWidget {
   const Deals({Key? key}) : super(key: key);
@@ -19,7 +19,8 @@ class _DealsState extends State<Deals> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddItems()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddItems()));
         },
         elevation: 0,
         foregroundColor: Colors.black,
@@ -38,7 +39,7 @@ class _DealsState extends State<Deals> {
               ),
             ],
           ),
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
       backgroundColor: colors.scaffoldColor,
@@ -63,6 +64,9 @@ class _DealsState extends State<Deals> {
                   Text(
                     "TRENDING",
                     style: texts.heading3,
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -94,6 +98,9 @@ class _DealsState extends State<Deals> {
                     "ALL PRODUCTS",
                     style: texts.heading3,
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -113,52 +120,6 @@ class _DealsState extends State<Deals> {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ItemCard extends StatelessWidget {
-  const ItemCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        displaySucessDialog(
-            context,
-            'Your purchase has been sent to the seller for verification',
-            'Please wait for them to respond');
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
-                  fit: BoxFit.contain,
-                  image: AssetImage("assets/images/test-carrot.png"),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            'Item Name',
-            style: texts.paragraph.copyWith(
-                fontWeight: FontWeight.w800, color: colors.headingTextColor),
-          ),
-          const SizedBox(height: 3),
-          Text(
-            'Price',
-            style: texts.paragraph
-                .copyWith(fontSize: 17, color: colors.headingTextColor),
-          )
-        ],
       ),
     );
   }
