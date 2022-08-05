@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
 import 'package:shopblocks_flutter/widgets/dropdown_widget.dart';
 import 'package:shopblocks_flutter/widgets/textbox_widget.dart';
+import 'package:shopblocks_flutter/widgets/textboxwithdropdown_widget.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
@@ -65,6 +66,10 @@ class _AddItemsState extends State<AddItems> {
                       'Craft',
                       'Machinery'
                     ], title: 'CATEGORY', hint: 'Select your category'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                    child: IncomeWithTypeTextField(listOfOptions: const ['Number','Grams','Kilograms','Litres','Meters'], hintText: 'Enter quantity', text: 'QUANTITY',),
                   ),
                   const Padding(
                     padding:

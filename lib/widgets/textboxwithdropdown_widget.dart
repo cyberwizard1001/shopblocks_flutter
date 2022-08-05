@@ -5,7 +5,6 @@ import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 class IncomeWithTypeTextField extends StatefulWidget {
   IncomeWithTypeTextField({
     Key? key,
-    required this.onSaved,
     this.initialValue,
     required this.hintText,
     required this.text,
@@ -14,7 +13,7 @@ class IncomeWithTypeTextField extends StatefulWidget {
     this.initialDropdownValue,
   }) : super(key: key);
 
-  final void Function(String?, String?) onSaved;
+
   final initialValue;
   final String hintText;
   final String text;
@@ -43,6 +42,40 @@ class _IncomeWithTypeTextFieldState extends State<IncomeWithTypeTextField> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Expanded(
+            flex: 3,
+            child: TextFormField(
+              initialValue: widget.initialValue,
+              keyboardType: TextInputType.number,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              style: GoogleFonts.raleway(color: colors.primaryTextColor),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: colors.accentColor,
+                focusColor: colors.accentColor,
+                label: Text(
+                  widget.text,
+                  style:
+                  GoogleFonts.raleway(color: colors.primaryTextColor),
+                ),
+                hintText: widget.hintText,
+                hintStyle: GoogleFonts.raleway(color: colors.primaryTextColor,fontWeight: FontWeight.w400),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(5)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(5)),
+                contentPadding: const EdgeInsets.all(7.0),
+              ),
+              validator: widget.validate ??
+                      (value) {
+                  },
+              onSaved: (value) {
+
+              },
+            ),
+          ),
           Expanded(
             flex: 2,
             child: Card(
@@ -81,39 +114,7 @@ class _IncomeWithTypeTextFieldState extends State<IncomeWithTypeTextField> {
               ),
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: TextFormField(
-              initialValue: widget.initialValue,
-              keyboardType: TextInputType.number,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              style: GoogleFonts.raleway(color: colors.primaryTextColor),
-              decoration: InputDecoration(
-                label: Text(
-                  widget.text,
-                  style:
-                  GoogleFonts.poppins(color: colors.primaryTextColor),
-                ),
-                hintText: widget.hintText,
-                contentPadding: EdgeInsets.all(7.0),
-              ),
-              validator: widget.validate ??
-                      (value) {
-                    if (value == "" || value == null) {
-                      return "Enter Income";
-                    }
-                    else if (int.tryParse(value) != null) {
-                      if (double.parse(value) <= 0)
-                        return "Income can't be less than or equal to 0";
-                    } else {
-                      return "Income has to be a numeric value";
-                    }
-                  },
-              onSaved: (value) {
-                widget.onSaved(value, chosenOption);
-              },
-            ),
-          ),
+
 
         ],
       ),
