@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1044450205028",
+    "project_id": "supplyblocks",
+    "storage_bucket": "supplyblocks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044450205028:android:ecea02ac1e3cd3a5c06e71",
+        "android_client_info": {
+          "package_name": "com.example.shopblocks_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044450205028-c4oeac8nct44atqjq5v2rkvtgsfqefq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd8aDIJxhnCy1RAINMxvgIG9rVfC8Vux8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044450205028-c4oeac8nct44atqjq5v2rkvtgsfqefq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
