@@ -12,6 +12,7 @@ class CustomSliverView extends StatelessWidget {
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: columnList,
           ),
         ),
