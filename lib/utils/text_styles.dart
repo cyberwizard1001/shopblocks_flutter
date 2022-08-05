@@ -13,3 +13,9 @@ TextStyle paragraph = GoogleFonts.raleway(
   fontWeight: FontWeight.w400,
   fontSize: 18,
 );
+
+TextStyle button = GoogleFonts.raleway(
+  color: colors.scaffoldColor,
+  fontWeight: FontWeight.w700,
+  fontSize: 18,
+);

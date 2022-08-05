@@ -7,6 +7,8 @@ var primaryTextColor = const Color(0xff747474);
 var lightTextColor = const Color(0xff8C8888);
 var accentColor = const Color(0xff202020);
 
+const lightGreyBackground = const Color(0xff202020);
+
 var cardColor = const Color(0xff585173);
 var buttonColor = const Color(0xff3C374E);
 var buttonTextColor = const Color(0xffffffff);
