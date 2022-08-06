@@ -23,7 +23,6 @@ class AddItems extends StatefulWidget {
 }
 
 class _AddItemsState extends State<AddItems> {
-
   TextEditingController itemNameController = TextEditingController();
   String categories = "";
   String quantity = "";
@@ -32,10 +31,10 @@ class _AddItemsState extends State<AddItems> {
   TextEditingController locationController = TextEditingController();
   String Time = "";
 
-  late Client httpClient ;
+  late Client httpClient;
   late Web3Client ethClient;
 
-  initState(){
+  initState() {
     httpClient = Client();
     ethClient = Web3Client(constants.contractAddress, httpClient);
     super.initState();
@@ -85,16 +84,19 @@ class _AddItemsState extends State<AddItems> {
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 20.0, vertical: 10.0),
-                  child: DropDownFormField(list: const [
-                    'Vegetables',
-                    'Fruits',
-                    'Grains',
-                    'Craft',
-                    'Machinery'
-                  ], onSaved: (value){
-                    categories = value;
-                  },
-                      title: 'CATEGORY', hint: 'Select your category'),
+                  child: DropDownFormField(
+                      list: const [
+                        'Vegetables',
+                        'Fruits',
+                        'Grains',
+                        'Craft',
+                        'Machinery'
+                      ],
+                      onSaved: (value) {
+                        categories = value;
+                      },
+                      title: 'CATEGORY',
+                      hint: 'Select your category'),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -108,14 +110,15 @@ class _AddItemsState extends State<AddItems> {
                       'Meters'
                     ],
                     hintText: 'Enter quantity',
-                    text: 'QUANTITY', onSaved: (qty,unit) {
-                        quantity = (qty! + unit!)!;
-                  },
+                    text: 'QUANTITY',
+                    onSaved: (qty, unit) {
+                      quantity = (qty! + unit!);
+                    },
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
                     hint: 'Enter cost of item here',
                     light: false,
@@ -125,8 +128,8 @@ class _AddItemsState extends State<AddItems> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
                     controller: locationController,
                     hint: 'Enter location of availability here',
@@ -140,13 +143,13 @@ class _AddItemsState extends State<AddItems> {
                         horizontal: 20.0, vertical: 20.0),
                     child: TimePickerWidget(
                       context: context,
-                      onSaved: (time){
+                      onSaved: (time) {
                         Time = time.toString();
                       },
                     )),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
                     controller: descriptionController,
                     hint: 'Enter description here',
@@ -160,10 +163,20 @@ class _AddItemsState extends State<AddItems> {
                   child: ElevatedButton(
                     onPressed: () {
                       String itemName = itemNameController.text.toString();
-                      String description = descriptionController.text.toString();
+                      String description =
+                          descriptionController.text.toString();
                       String location = locationController.text.toString();
-                      String costPerUnit = costPerUnitController.text.toString();
-                      addProduct(itemName, categories, quantity, costPerUnit, location, Time, description, ethClient);
+                      int costPerUnit = int.parse(costPerUnitController.text);
+                      print(categories);
+                      print(itemName +
+                          categories +
+                          location +
+                          costPerUnit.toString() +
+                          quantity +
+                          description +
+                          Time);
+                      addProduct("Name", 'categories', "location", 1,
+                          "quantity", 'description', Time, "", ethClient);
                     },
                     style:
                         ElevatedButton.styleFrom(primary: colors.primaryColor),

@@ -1,6 +1,5 @@
 const infura_url = '';
 
-const contractAddress = '0x7AAd0ef37D2f9c40DA859B2C1d3cE239940730cb';
-
+const contractAddress = '0x9dCAE7f7763794356d4932A74036c94482dAC4A5';
 
 const sellerPrivateKey = '';

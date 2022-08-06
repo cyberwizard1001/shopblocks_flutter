@@ -15,7 +15,7 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const ItemDetails(),
+      home: const Home(),
     ),
   );
 }

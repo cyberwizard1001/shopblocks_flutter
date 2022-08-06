@@ -10,8 +10,6 @@ import 'package:shopblocks_flutter/widgets/top_bar.dart';
 
 import '../widgets/item_card.dart';
 
-import 'package:shopblocks_flutter/utils/testProduct.json' as test;
-
 class Deals extends StatefulWidget {
   const Deals({Key? key}) : super(key: key);
 
