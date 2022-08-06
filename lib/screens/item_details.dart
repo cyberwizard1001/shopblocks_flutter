@@ -7,6 +7,7 @@ import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
 import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 import 'package:web3dart/web3dart.dart';
+import 'package:shopblocks_flutter/utils/constants.dart' as constants;
 
 class ItemDetails extends StatefulWidget {
   const ItemDetails({
@@ -28,7 +29,7 @@ class _ItemDetailsState extends State<ItemDetails> {
     @override
     void initState() {
       httpClient = Client();
-      ethClient = Web3Client('', httpClient);
+      ethClient = Web3Client(constants.contractAddress, httpClient);
       super.initState();
     }
 

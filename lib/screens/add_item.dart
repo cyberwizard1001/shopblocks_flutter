@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
 import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
+import 'package:shopblocks_flutter/utils/functions.dart';
 import 'package:shopblocks_flutter/widgets/dropdown_widget.dart';
 import 'package:shopblocks_flutter/widgets/textbox_widget.dart';
 import 'package:shopblocks_flutter/widgets/textboxwithdropdown_widget.dart';
@@ -8,6 +12,8 @@ import 'package:shopblocks_flutter/widgets/time_picker.dart';
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
+import 'package:shopblocks_flutter/utils/constants.dart' as constants;
+import 'package:web3dart/web3dart.dart';
 
 class AddItems extends StatefulWidget {
   const AddItems({Key? key}) : super(key: key);
@@ -17,6 +23,24 @@ class AddItems extends StatefulWidget {
 }
 
 class _AddItemsState extends State<AddItems> {
+
+  TextEditingController itemNameController = TextEditingController();
+  String categories = "";
+  String quantity = "";
+  TextEditingController costPerUnitController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  String Time = "";
+
+  late Client httpClient ;
+  late Web3Client ethClient;
+
+  initState(){
+    httpClient = Client();
+    ethClient = Web3Client(constants.contractAddress, httpClient);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +71,11 @@ class _AddItemsState extends State<AddItems> {
                         style: texts.button,
                       ),
                     )),
-                const Padding(
-                  padding: EdgeInsets.only(
+                Padding(
+                  padding: const EdgeInsets.only(
                       top: 50.0, left: 20.0, right: 20.0, bottom: 20.0),
                   child: TextBoxField(
+                    controller: itemNameController,
                     hint: 'Enter item name here',
                     light: false,
                     title: 'ITEM NAME',
@@ -66,7 +91,10 @@ class _AddItemsState extends State<AddItems> {
                     'Grains',
                     'Craft',
                     'Machinery'
-                  ], title: 'CATEGORY', hint: 'Select your category'),
+                  ], onSaved: (value){
+                    categories = value;
+                  },
+                      title: 'CATEGORY', hint: 'Select your category'),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -80,23 +108,27 @@ class _AddItemsState extends State<AddItems> {
                       'Meters'
                     ],
                     hintText: 'Enter quantity',
-                    text: 'QUANTITY',
+                    text: 'QUANTITY', onSaved: (qty,unit) {
+                        quantity = (qty! + unit!)!;
+                  },
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
                     hint: 'Enter cost of item here',
                     light: false,
                     title: 'COST/UNIT',
                     padding: EdgeInsets.zero,
+                    controller: costPerUnitController,
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
+                    controller: locationController,
                     hint: 'Enter location of availability here',
                     light: false,
                     title: 'LOCATION',
@@ -108,11 +140,15 @@ class _AddItemsState extends State<AddItems> {
                         horizontal: 20.0, vertical: 20.0),
                     child: TimePickerWidget(
                       context: context,
+                      onSaved: (time){
+                        Time = time.toString();
+                      },
                     )),
-                const Padding(
+                Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   child: TextBoxField(
+                    controller: descriptionController,
                     hint: 'Enter description here',
                     light: false,
                     title: 'DESCRIPTION',
@@ -122,7 +158,13 @@ class _AddItemsState extends State<AddItems> {
                 Padding(
                   padding: const EdgeInsets.only(top: 30, bottom: 50),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      String itemName = itemNameController.text.toString();
+                      String description = descriptionController.text.toString();
+                      String location = locationController.text.toString();
+                      String costPerUnit = costPerUnitController.text.toString();
+                      addProduct(itemName, categories, quantity, costPerUnit, location, Time, description, ethClient);
+                    },
                     style:
                         ElevatedButton.styleFrom(primary: colors.primaryColor),
                     child: Padding(
