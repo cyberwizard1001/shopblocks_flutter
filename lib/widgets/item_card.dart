@@ -6,7 +6,10 @@ import 'alert_dialog.dart';
 class ItemCard extends StatelessWidget {
   const ItemCard({
     Key? key,
+    required this.onPress,
   }) : super(key: key);
+
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {

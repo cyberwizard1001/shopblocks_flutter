@@ -1,11 +1,16 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shopblocks_flutter/models/itemModel.dart';
 import 'package:shopblocks_flutter/screens/add_item.dart';
+import 'package:shopblocks_flutter/screens/item_details.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
 import 'package:shopblocks_flutter/widgets/top_bar.dart';
 
 import '../widgets/item_card.dart';
+
+import 'package:shopblocks_flutter/utils/testProduct.json' as test;
 
 class Deals extends StatefulWidget {
   const Deals({Key? key}) : super(key: key);
@@ -16,6 +21,10 @@ class Deals extends StatefulWidget {
 
 class _DealsState extends State<Deals> {
   String status = "";
+
+  // List testJsonProd = Factory(constructor);
+
+  // ItemModel testProd = new ItemModel(pid: test[], itemName: itemName, itemType: itemType, itemPrice: itemPrice, location: location, availableCount: availableCount, description: description, timeOfAvailability: timeOfAvailability, imageId: imageId)
 
   @override
   void initState() {
@@ -99,7 +108,9 @@ class _DealsState extends State<Deals> {
                       mainAxisSpacing: 25,
                     ),
                     itemBuilder: (context, i) {
-                      return const ItemCard();
+                      return ItemCard(
+                        onPress: () {},
+                      );
                     },
                     itemCount: 4,
                   )
@@ -132,7 +143,14 @@ class _DealsState extends State<Deals> {
                       mainAxisSpacing: 25,
                     ),
                     itemBuilder: (context, i) {
-                      return const ItemCard();
+                      return ItemCard(
+                        onPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ItemDetails()));
+                        },
+                      );
                     },
                     itemCount: 6,
                   )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shopblocks_flutter/models/itemModel.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
 import 'package:shopblocks_flutter/utils/text_styles.dart' as texts;
 import 'package:shopblocks_flutter/utils/custom_sliver_widget.dart';
@@ -8,10 +9,14 @@ import 'package:shopblocks_flutter/widgets/top_bar.dart';
 import 'package:web3dart/web3dart.dart';
 
 class ItemDetails extends StatefulWidget {
-  const ItemDetails({Key? key}) : super(key: key);
+  const ItemDetails({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ItemDetails> createState() => _ItemDetailsState();
+
+  // final ItemModel product;
 }
 
 class _ItemDetailsState extends State<ItemDetails> {
@@ -75,15 +80,49 @@ class _ItemDetailsState extends State<ItemDetails> {
               ),
             ),
           ),
-          Row(
-            children: [
-              Flexible(
-                child: Text(
-                  "Handcrafted table made from reclaimed teak wood and painted with organic dyes",
-                  style: texts.heading3,
+          Padding(
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "Handcrafted table made from reclaimed teak wood and painted with organic dyes",
+                        style: texts.heading4,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      Ionicons.share_outline,
+                      color: colors.whiteText,
+                      size: 40,
+                    )
+                  ],
                 ),
-              )
-            ],
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        "06-08-2022",
+                        style: texts.heading4,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Rs. 3250/-",
+                      style: texts.heading4,
+                    ),
+                  ],
+                ),
+                Text("data")
+              ],
+            ),
           )
         ],
       ),
