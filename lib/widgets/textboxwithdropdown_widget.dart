@@ -7,6 +7,7 @@ class IncomeWithTypeTextField extends StatefulWidget {
     Key? key,
     this.initialValue,
     required this.hintText,
+    required this.onSaved,
     required this.text,
     this.validate,
     required this.listOfOptions,
@@ -19,6 +20,7 @@ class IncomeWithTypeTextField extends StatefulWidget {
   final String text;
   final String Function(String?)? validate;
   final List listOfOptions;
+  final void Function(String?, String?) onSaved;
   final String? initialDropdownValue;
 
   @override
@@ -72,7 +74,7 @@ class _IncomeWithTypeTextFieldState extends State<IncomeWithTypeTextField> {
                       (value) {
                   },
               onSaved: (value) {
-
+                widget.onSaved(value, chosenOption);
               },
             ),
           ),
