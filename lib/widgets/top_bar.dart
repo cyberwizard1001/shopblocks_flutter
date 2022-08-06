@@ -29,13 +29,22 @@ class TopBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (hasback)
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios_new_outlined,
-                    color: colors.primaryTextColor,
+                GestureDetector(
+                  onTap: () => {Navigator.pop(context)},
+                  child: Ink(
+                    decoration: const ShapeDecoration(
+                      color: colors.lightGreyBackground,
+                      shape: CircleBorder(),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Ionicons.arrow_back,
+                        color: colors.primaryTextColor,
+                      ),
+                    ),
                   ),
                 ),
               if (hasback == false)
@@ -73,6 +82,23 @@ class TopBar extends StatelessWidget {
                       Ionicons.settings_outline,
                       // size: 30,
                       color: colors.primaryTextColor,
+                    ),
+                  ),
+                ),
+              if (hasback)
+                Ink(
+                  decoration: const ShapeDecoration(
+                    color: Colors.transparent,
+                    shape: CircleBorder(),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Ionicons.settings_outline,
+                      // size: 30,
+                      color: Colors.transparent,
                     ),
                   ),
                 ),

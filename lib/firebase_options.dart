@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,11 +46,22 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDx4YQUQjBpYkABHg0y8vLywbReruGBy38',
+    appId: '1:1044450205028:web:a83d0b887c74c039c06e71',
+    messagingSenderId: '1044450205028',
+    projectId: 'supplyblocks',
+    authDomain: 'supplyblocks.firebaseapp.com',
+    databaseURL: 'https://supplyblocks-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'supplyblocks.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCd8aDIJxhnCy1RAINMxvgIG9rVfC8Vux8',
     appId: '1:1044450205028:android:ecea02ac1e3cd3a5c06e71',
     messagingSenderId: '1044450205028',
     projectId: 'supplyblocks',
+    databaseURL: 'https://supplyblocks-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'supplyblocks.appspot.com',
   );
 
@@ -62,9 +70,9 @@ class DefaultFirebaseOptions {
     appId: '1:1044450205028:ios:5ac31856340d6bf0c06e71',
     messagingSenderId: '1044450205028',
     projectId: 'supplyblocks',
+    databaseURL: 'https://supplyblocks-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'supplyblocks.appspot.com',
-    iosClientId:
-        '1044450205028-qlr0894pek1ubdrkl0bo4h8ponvrr04c.apps.googleusercontent.com',
+    iosClientId: '1044450205028-qlr0894pek1ubdrkl0bo4h8ponvrr04c.apps.googleusercontent.com',
     iosBundleId: 'com.example.shopblocksFlutter',
   );
 }

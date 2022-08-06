@@ -48,7 +48,10 @@ dependencies:
   ionicons:
   url_launcher:
   flutter_web3:
+  web3dart:
+  http:
   provider:
+  firebase_database: ^9.1.0
 
 dev_dependencies:
   flutter_test:

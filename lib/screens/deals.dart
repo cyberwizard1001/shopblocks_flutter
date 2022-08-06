@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shopblocks_flutter/screens/add_item.dart';
 import 'package:shopblocks_flutter/utils/colors.dart' as colors;
@@ -14,6 +15,22 @@ class Deals extends StatefulWidget {
 }
 
 class _DealsState extends State<Deals> {
+  String status = "";
+
+  @override
+  void initState() {
+    super.initState();
+    var reference = FirebaseDatabase.instance.ref('order_status');
+    reference.onValue.listen((DatabaseEvent event) {
+      setState(() {
+        status = event.snapshot.value.toString();
+
+        // if (status == '') {}
+        // else if( status == '')
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +63,10 @@ class _DealsState extends State<Deals> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Text(
+            //   status,
+            //   style: texts.heading1,
+            // ),
             TopBar(
               hasback: false,
               onChanged: (value) {

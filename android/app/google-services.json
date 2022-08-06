@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1044450205028",
+    "firebase_url": "https://supplyblocks-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "supplyblocks",
     "storage_bucket": "supplyblocks.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "1044450205028-c4oeac8nct44atqjq5v2rkvtgsfqefq1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1044450205028-qlr0894pek1ubdrkl0bo4h8ponvrr04c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopblocksFlutter"
+              }
             }
           ]
         }
